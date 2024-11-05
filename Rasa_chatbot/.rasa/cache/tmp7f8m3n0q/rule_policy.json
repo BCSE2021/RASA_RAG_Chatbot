@@ -1,0 +1,38 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thanks\"}}]": "utter_thanks",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thanks\"}}, {\"prev_action\": {\"action_name\": \"utter_thanks\"}, \"user\": {\"intent\": \"thanks\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_query_rag",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"action_query_rag\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}]": "registration_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}, {\"active_loop\": {\"name\": \"registration_form\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}, \"user\": {\"intent\": \"provide_student_id\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}]": "action_registration_form",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}]": "action_listen"
+    },
+    "rule_only_slots": [
+      "id_student",
+      "id_class",
+      "id_subject"
+    ],
+    "rule_only_loops": [
+      "registration_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"registration_form\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}, \"user\": {\"intent\": \"provide_student_id\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_registration_form\"}, \"slots\": {\"id_class\": [1.0], \"id_student\": [1.0], \"id_subject\": [1.0]}}]",
+      "predicting default action with intent session_start",
+      "handling active loops and forms - registration_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "handling active loops and forms - registration_form"
+    ]
+  }
+}

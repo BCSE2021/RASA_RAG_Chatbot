@@ -1,0 +1,10 @@
+{
+  "rule_only_slots": [
+    "id_student",
+    "id_class",
+    "id_subject"
+  ],
+  "rule_only_loops": [
+    "registration_form"
+  ]
+}

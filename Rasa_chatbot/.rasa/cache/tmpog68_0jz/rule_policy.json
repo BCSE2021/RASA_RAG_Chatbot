@@ -1,0 +1,40 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}]": "action_validate_student_id",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}, {\"active_loop\": {\"name\": \"student_id_form\"}, \"prev_action\": {\"action_name\": \"action_validate_student_id\"}, \"slots\": {\"id_student\": [1.0]}, \"user\": {\"intent\": \"provide_student_id\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thanks\"}}]": "utter_thanks",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thanks\"}}, {\"prev_action\": {\"action_name\": \"utter_thanks\"}, \"user\": {\"intent\": \"thanks\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_subject_id\"}}]": "action_validate_subject_id",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_subject_id\"}}, {\"prev_action\": {\"action_name\": \"action_validate_subject_id\"}, \"slots\": {\"id_student\": [1.0]}, \"user\": {\"intent\": \"provide_subject_id\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"student_id_form\"}, \"slots\": {\"id_student\": [1.0]}}]": "utter_ask_subject_id",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"student_id_form\"}, \"slots\": {\"id_student\": [1.0]}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_ask_subject_id\"}, \"slots\": {\"id_student\": [1.0]}}]": "action_listen"
+    },
+    "rule_only_slots": [
+      "id_student"
+    ],
+    "rule_only_loops": [
+      "student_id_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"student_id_form\"}, \"prev_action\": {\"action_name\": \"action_validate_student_id\"}, \"slots\": {\"id_student\": [1.0]}, \"user\": {\"intent\": \"provide_student_id\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_subject_id\"}}, {\"prev_action\": {\"action_name\": \"action_validate_subject_id\"}, \"slots\": {\"id_student\": [1.0]}, \"user\": {\"intent\": \"provide_subject_id\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_subject_id\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"student_id_form\"}, \"slots\": {\"id_student\": [1.0]}}]",
+      "predicting default action with intent restart",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"student_id_form\"}, \"slots\": {\"id_student\": [1.0]}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_ask_subject_id\"}, \"slots\": {\"id_student\": [1.0]}}]",
+      "handling active loops and forms - student_id_form - action_listen",
+      "handling active loops and forms - student_id_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_student_id\"}}, {\"active_loop\": {\"name\": \"student_id_form\"}, \"prev_action\": {\"action_name\": \"action_validate_student_id\"}, \"slots\": {\"id_student\": [1.0]}, \"user\": {\"intent\": \"provide_student_id\"}}]",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

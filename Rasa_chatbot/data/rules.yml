@@ -1,0 +1,43 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say thanks anytime the user says thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+
+- rule: activate regis_form
+  steps:
+  - intent: provide_student_id
+  - action: registration_form
+  - active_loop: registration_form
+  - slot_was_set:
+    - id_student: "valid_student_id"
+    - id_subject: "valid_course_id"
+    - id_class: "valid_class_id"
+    - confirmations: "confirmation"
+
+- rule: submit_registration_form
+  condition:
+  - active_loop: registration_form
+  steps:
+  - action: registration_form
+  - active_loop: null
+  - slot_was_set:
+    - id_student: "valid_student_id"
+    - id_subject: "valid_course_id"
+    - id_class: "valid_class_id"
+    - confirmations: "confirmation"
+  - action: action_registration_form
+
+- rule: Activate RAG fallback when no intent matches
+  steps:
+    - intent: nlu_fallback
+    - action: action_query_rag 

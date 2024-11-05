@@ -1,0 +1,92 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - xin chào
+    - ê
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - bye bye
+    - see you later
+    - tạm biệt
+    - chào tạm biệt
+
+- intent: affirm
+  examples: |
+    - yes
+    - có
+    - phải
+    - chính xác
+    - đúng vậy
+    - đúng
+
+- intent: deny
+  examples: |
+    - no
+    - không
+    - không phải
+    
+- intent: thanks
+  examples: |
+    - cảm ơn
+    - cảm ơn bạn
+    - Tks
+    - thank you
+    - thanks
+
+- intent: provide_student_id
+  examples: |
+    - [21110087](student_id)
+    - Mã sinh viên của tôi là [21220012](student_id)
+    - msv [22110078](student_id)
+    - là [23220089](student_id)
+
+- intent: provide_subject_id
+  examples: |
+    - [MAT312](subject_id)
+    - [POL101](subject_id)
+    - [VJU202](subject_id)
+    - [AET214](subject_id)
+    - [CSE322](subject_id)
+    - [JPS338](subject_id)
+
+- intent: provide_class_id
+  examples: |
+    - [IT30](class_id)
+    - [AI20](class_id)
+    - [JP33](class_id)
+    - [UT20](class_id)
+    - [VL69](class_id)
+    - [CS20](class_id)
+
+- intent: request_regis_subject
+  examples: |
+    - Tôi muốn đăng ký tín chỉ
+    - Tôi muốn đăng ký môn 
+    - Đăng ký tín chỉ
+    - Tôi muốn đăng ký môn học
+    - Đăng ký tín chỉ
+    - Đăng ký môn học
+
+
+- intent: get_info
+  examples: |
+    - Tôi muốn xem thông tin
+    - Thông tin cá nhân
+
+- intent: check_db
+  examples: |
+    - check my connect db
+    - connect db
+
+- intent: nlu_fallback
+  examples: |
+    - Chương trình đào tạo trong bao lâu
+    - Chương trình cung cấp các kỹ năng gì

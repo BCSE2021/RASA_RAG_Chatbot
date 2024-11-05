@@ -1,0 +1,112 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - adress
+  - thanks
+  - provide_student_id
+  - provide_subject_id
+  - provide_class_id
+  - request_regis_subject
+  - check_db
+  - get_info
+  - nlu_fallback
+
+entities:
+  - student_id
+  - subject_id
+  - class_id
+  - confirmation
+
+slots:  
+  id_student:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: student_id
+
+  id_subject:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: subject_id
+
+  id_class:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: class_id
+
+  confirmations:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: confirmation
+
+  # id_subject:
+  #   type: text
+  #   influence_conversation: true
+  #   mappings:
+  #   - type: from_entity
+  #     entity: subject_id
+
+responses:
+  utter_greet:
+  - text: "Xin chào, tôi có thể giúp gì cho bạn?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_adress:
+  - text: " Trường có 2 cơ sở Hòa Lạc và Mỹ Đình "
+
+  utter_thanks:
+  - text: "Không có gì"
+  - text: "Không thành vấn đề"
+  - text: "Giúp được bạn là tôi vui rồi"
+
+  utter_askId:
+  - text: "Mã sinh viên của bạn là gì"
+  - text: "Bạn có thể cho tôi biết mã sinh viên của bạn được không?"
+  - text: "Hãy cho tôi biết mã sinh viên của bạn"
+
+  utter_ask_subject_id:
+  - text: "Mã học phần mà bạn muốn đăng ký"
+  - text: "Hãy cho tôi biết mã học phần mà bạn muốn đăng ký"
+  - text: "Bạn muốn đăng ký mã học phần nào vậy"
+
+  utter_ask_confirmation:
+  - text: "Thông tin bạn nhập là {info}. Bạn có muốn xác nhận không?"
+
+  utter_default:
+  - text: "Tôi không hiểu ý bạn. Xin vui lòng đợi để tìm thêm thông tin."
+
+  
+actions:
+  - action_validate_student_id
+  - action_validate_subject_id
+  - action_check_db_connection
+  - validate_registration_form
+  - action_handle_confirmation
+  - action_provide_info
+  - action_registration_form
+  - action_query_rag
+
+forms:
+  registration_form:
+    required_slots:
+      - id_student
+      - id_subject
+      - id_class
+      # - confirmations
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

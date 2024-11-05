@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  rasa-server:
+    build: ./Rasa_chatbot
+    restart: always
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./Rasa_chatbot/actions:/app/actions
+      - ./Rasa_chatbot/data:/app/data
+    command: rasa run --enable-api --cors "*" --debug
+    env_file:
+      - ./Rasa_chatbot/.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5005/version"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - all
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  rasa-actions-server:
+    build: ./Rasa_chatbot
+    restart: always
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./Rasa_chatbot/actions:/app/actions
+      - ./Rasa_chatbot/utils:/app/utils
+    command: ["rasa", "run", "actions"]
+    env_file:
+      - ./Rasa_chatbot/.env  
+    depends_on:
+      - rasa-server
+    networks:
+      - all
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  all:
+    driver: bridge

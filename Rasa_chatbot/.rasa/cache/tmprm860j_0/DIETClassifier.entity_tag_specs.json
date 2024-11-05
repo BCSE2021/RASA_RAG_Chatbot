@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-class_id",
+      "2": "I-class_id",
+      "3": "L-class_id",
+      "4": "U-class_id",
+      "5": "B-student_id",
+      "6": "I-student_id",
+      "7": "L-student_id",
+      "8": "U-student_id",
+      "9": "B-subject_id",
+      "10": "I-subject_id",
+      "11": "L-subject_id",
+      "12": "U-subject_id",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-class_id": 1,
+      "I-class_id": 2,
+      "L-class_id": 3,
+      "U-class_id": 4,
+      "B-student_id": 5,
+      "I-student_id": 6,
+      "L-student_id": 7,
+      "U-student_id": 8,
+      "B-subject_id": 9,
+      "I-subject_id": 10,
+      "L-subject_id": 11,
+      "U-subject_id": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

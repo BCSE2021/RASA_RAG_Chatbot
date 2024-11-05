@@ -1,0 +1,84 @@
+version: "3.1"
+
+stories:
+
+- story: adress path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: adress
+  - action: utter_adress
+  - intent: thanks
+  - action: utter_thanks
+
+# - story: regis_subject
+#   steps:
+#   - intent: request_regis_subject
+#   - action: utter_askId
+#   - intent: provide_student_id
+#   - action: action_validate_student_id
+#   - active_loop: student_id_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - id_student: "valid_student_id"
+#   - action: utter_ask_subject_id
+#   - intent: provide_subject_id
+#   - intent: thanks
+#   - action: utter_thanks
+
+# - story: regis_subject
+#   steps:
+#   - intent: request_regis_subject
+#   - action: utter_askId
+#   - intent: provide_student_id
+#   - action: action_validate_student_id
+#   - intent: provide_subject_id
+#   - action: action_validate_subject_id
+#   - intent: thanks
+#   - action: utter_thanks
+
+- story: check_db
+  steps:
+  - intent: check_db
+  - action: action_check_db_connection
+
+- story: get_info
+  steps:
+  - intent: get_info
+  - action: action_provide_info
+# - story: regis_subject
+#   steps:
+#   - intent: request_regis_subject
+#   - action: utter_askId
+#   - intent: provide_student_id
+#   - action: action_validate_student_id
+
+#   - intent: thanks
+#   - action: utter_thanks
+- story: registration_course
+  steps:
+  - intent: request_regis_subject
+  - action: utter_askId
+  - intent: provide_student_id
+  - action: registration_form
+  - active_loop: registration_form
+  - slot_was_set:
+    - requested_slot: id_student
+  - slot_was_set:
+    - requested_slot: 21110087
+  - slot_was_set:
+    - requested_slot: id_subject
+  - slot_was_set:
+    - requested_slot: CSE2022
+  - slot_was_set:
+    - requested_slot: id_class
+  - slot_was_set:
+    - requested_slot: IT30
+  # - slot_was_set:
+  #   - requested_slot: confirm
+  - active_loop: null
+
+# - story: User asks something not recognized by Rasa
+#   steps:
+#     - intent: nlu_fallback
+#     - action: action_query_rag
